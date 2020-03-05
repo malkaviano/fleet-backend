@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using Domain.Interfaces;
 using EFRepository;
 using Domain.Services;
+using System;
 
 namespace Api
 {
@@ -25,7 +26,9 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(c => c.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<DataContext>(c => c.UseSqlServer(connectionString));
 
             services.AddAutoMapper(typeof(Startup));
 
