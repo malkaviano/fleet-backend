@@ -3,16 +3,13 @@ services:
     web:
         build: .
         ports:
-            - "80:80"
+            - "8080:80"
         depends_on:
             - db
             - data
-        network_mode: 'host'
     data:
         build:
             context: ./DockerMigrations/AppData
-        ports:
-            - "80:80"
         depends_on:
             - db
         network_mode: 'host'
@@ -25,4 +22,3 @@ services:
         environment:
             SA_PASSWORD: "thisIS300spartans"
             ACCEPT_EULA: "Y"
-        network_mode: 'host'
