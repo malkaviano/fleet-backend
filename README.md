@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/malkaviano/fleet-backend/badge)](https://www.codefactor.io/repository/github/malkaviano/fleet-backend)
+
 # fleet
 Fleet API - Dev Test.
 
